@@ -23,21 +23,17 @@ public class MyWidgetProvider2 extends AppWidgetProvider {
   public void onUpdate(Context context, AppWidgetManager appWidgetManager,
       int[] appWidgetIds) {
 
-    // Get all ids
     ComponentName thisWidget = new ComponentName(context,
         MyWidgetProvider2.class);
     int[] allWidgetIds = appWidgetManager.getAppWidgetIds(thisWidget);
     for (int widgetId : allWidgetIds) {
-      // create some random data
       int number = (new Random().nextInt(100));
 
       RemoteViews remoteViews = new RemoteViews(context.getPackageName(),
           R.layout.widget_layout);
-      Log.w("WidgetExample", String.valueOf(number));
-      // Set the text
+
       remoteViews.setTextViewText(R.id.update, String.valueOf(number));
 
-      // Register an onClickListener
       Intent intent = new Intent(context, MyWidgetProvider2.class);
 
       intent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
@@ -68,7 +64,6 @@ public class MyWidgetProvider2 extends AppWidgetProvider {
   @Override
   public void onReceive(Context context, Intent intent) {
       super.onReceive(context, intent);
-      
-      Toast.makeText(context, "cccc", 4).show();
+       
   }
 } 

@@ -25,7 +25,7 @@ public class Utils {
 	private static String get(Context context, String key){
 		String result = "";
 		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-		result = preferences.getString(key, "000000999999");
+		result = preferences.getString(key, "000000");
 		return result;
 	}
 	
